@@ -2,6 +2,7 @@ package com.example.contactmanager.service;
 
 
 import com.example.contactmanager.model.Contact;
+import com.example.contactmanager.repository.ContactRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -9,13 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class DataDao {
+public class ContactDao {
     @Autowired
     private ContactRepository contactRepository;
 
     public List<Contact> getAllContacts() {
         List<Contact> contacts = new ArrayList<>();
-        contacts.addAll(contactRepository.findAll());
+        contactRepository.findAll().forEach(contacts::add);
         return contacts;
     }
 

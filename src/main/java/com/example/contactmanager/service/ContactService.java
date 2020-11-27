@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class ContactService {
     @Autowired
-    private DataDao datadao;
+    private ContactDao datadao;
 
     public List<Contact> getContactList() {
 

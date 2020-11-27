@@ -1,6 +1,9 @@
 package com.example.contactmanager.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,6 +19,7 @@ import javax.persistence.*;
 //@Component
 @Entity
 @Table(name = "contacts")
+
 public class Contact {
     @Id
     private int id;
@@ -27,7 +31,7 @@ public class Contact {
     private int age;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "n_id")
+    @JoinColumn(name = "n_id", nullable = false)
     private Numbers numbers;
 
     public Contact(String name, String surname, Integer age, Numbers numbers) {
