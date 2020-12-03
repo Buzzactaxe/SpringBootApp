@@ -1,7 +1,7 @@
 package com.example.contactmanager.service;
 
 
-import com.example.contactmanager.model.Numbers;
+import com.example.contactmanager.model.persistence.Numbers;
 import com.example.contactmanager.repository.NumbersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class NumbersDao {
+public class NumbersService {
     @Autowired
     private NumbersRepository numbersRepository;
 

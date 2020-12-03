@@ -1,7 +1,7 @@
-package com.example.contactmanager.model;
+package com.example.contactmanager.model.persistence;
 
 
-import com.example.contactmanager.service.ContactService;
+import com.example.contactmanager.service.ConsoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -12,7 +12,7 @@ import java.util.Scanner;
 @Component
 public class Ui {
     @Autowired
-    private ContactService contactService;
+    private ConsoleService consoleService;
 
     public void showMainMenuUi() {
         System.out.println(
@@ -71,7 +71,7 @@ public class Ui {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter  ID of Contact you want to delete");
         var customerId = scanner.nextInt();
-        contactService.deleteFromId(customerId);
+        consoleService.deleteFromId(customerId);
         System.out.println("contact deleted");
         showMainMenuUi();
     }
@@ -109,7 +109,7 @@ public class Ui {
 
         Numbers contactNumbers = new Numbers(addHomePhone, addMobilePhone);
         Contact contact = new Contact(addName, addSurname, addContactAge, contactNumbers);
-        contactService.addContact(contact);
+        consoleService.addContact(contact);
         System.out.println(
                 "\n░░░░░░░░░░░░░░░░░░░░░░█████████░░░░░░░░░\n" +
                         "░░███████░░░░░░░░░░███▒▒▒▒▒▒▒▒███░░░░░░░\n" +
@@ -139,7 +139,7 @@ public class Ui {
     }
 
     private void showAllContacts() {
-        var contactList = contactService.getContactList();
+        var contactList = consoleService.getContactList();
         for (Contact contact : contactList) {
             System.out.println("| Contact ID: " + contact.getId() + "\n  Age: " + contact.toString() + "\n------|");
         }

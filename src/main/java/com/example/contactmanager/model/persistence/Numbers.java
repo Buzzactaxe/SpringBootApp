@@ -1,18 +1,20 @@
-package com.example.contactmanager.model;
+package com.example.contactmanager.model.persistence;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 
 import javax.persistence.*;
 
-@AllArgsConstructor
+
+
 @NoArgsConstructor
 @ToString
 @Data
 @Entity
 @Table(name = "numbers")
+//@JsonIdentityInfo(
+//        generator = ObjectIdGenerators.PropertyGenerator.class,
+//        property = "n_id")
 public class Numbers {
 
     @Id
@@ -23,18 +25,16 @@ public class Numbers {
     @Column(name = "mobile_phone")
     private String mobileNumber;
 
-
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "numbers")
-    private Contact contact;
+//    @JsonManagedReference
+//    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "numbers")
+//    private Contact contact;
 
     public Numbers(String homeNumber, String mobileNumber) {
         this.homeNumber = homeNumber;
         this.mobileNumber = mobileNumber;
-        this.contact = contact;
+     //   this.contact = contact;
     }
 
-    public Numbers(int numberId, String s, String s1) {
-    }
 
     @Override
     public String toString() {
