@@ -25,7 +25,7 @@ public class Ui {
         System.out.println(intro);
         try  {
             Scanner scanner = new Scanner(System.in);
-            var userInput = StringUtils.capitalize(scanner.nextLine());
+            var userInput = scanner.nextLine();
             switch (userInput) {
                 case "0":
                     showAllContacts();

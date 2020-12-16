@@ -25,7 +25,7 @@ public class ContactService {
     }
 
     public Contact getContact(int id){
-        return contactRepository.getOne(id);
+        return contactRepository.findById(id).get();
     }
 
     public void updateContact(int id, Contact c){

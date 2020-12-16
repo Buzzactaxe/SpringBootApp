@@ -11,12 +11,9 @@ import javax.persistence.*;
 @NoArgsConstructor
 @ToString
 @Data
-//@Component
+
 @Entity
 @Table(name = "contacts")
-//@JsonIdentityInfo(
-//        generator = ObjectIdGenerators.PropertyGenerator.class,
-//        property = "id")
 public class Contact {
     @Id
     private int id;
